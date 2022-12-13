@@ -1,0 +1,42 @@
+<div class="container">
+    <div>
+    <h2>Modifier un Maquillage :</h2>
+    </div>
+    <form >
+    <div class="col-sm-2 col-md-2 col-lg-2">
+    <label >ID Maquillage</label>
+    <input  readonly type="text" [(ngModel)]="currentMaquillage.idMaquillage"
+    name="idMaquillage" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4" >
+    <label >Nom Maquillage</label>
+    <input type="text"[(ngModel)]= "currentMaquillage.nomMaquillage"
+    name="nomMaquillage" class="form-control">
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+    <label >Prix Maquillage</label>
+    <input type="number" [(ngModel)]= "currentMaquillage.prixMaquillage"
+    name="prixMaquillage" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+    <label >Date création</label>
+    <input type="date" 
+    [ngModel]="currentMaquillage.dateCreation | date: 'yyyy-MM-dd'" 
+    (ngModelChange)=" currentMaquillage.dateCreation= $event" name="dateCreation"
+ class="form-control">
+</div>
+<div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Brand</label>
+            <select class="form-control form-control-lg" id="idbrand" name="idbrand"
+            [(ngModel)]="updatedBrandId">
+             <option *ngFor="let brand of brands" [value]="brand.idbrand" >
+             {{brand.nombrand}}
+            </option>
+            </select>
+            </div>
+    
+<div class="mt-2">
+<button type="submit" (click)="updateMaquillage()" class="btn btn-success">Modifer</button>
+</div>
+</form>
+</div>
